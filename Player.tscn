@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Images/Lanceiro/Player.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://Resources/Scripts/KinematicBody2D.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 33.0283 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.176471, 0.913725, 0.0470588, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0862745, 0.384314, 0.00784314, 1 )
+
+[node name="Player" type="Node2D"]
+
+[node name="Debug" type="Label" parent="."]
+visible = false
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 136.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="KinematicBody2D" parent="."]
+collision_layer = 2
+script = ExtResource( 2 )
+jump_speed = -600
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+position = Vector2( 6, -5 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 1 )
+animation = "standing"
+
+[node name="HP" type="Label" parent="Player"]
+margin_left = -40.0
+margin_top = -64.0
+margin_right = 40.0
+margin_bottom = -50.0
+rect_pivot_offset = Vector2( 32, 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Barra Vida" type="ProgressBar" parent="Player"]
+margin_left = -40.0
+margin_top = -48.0
+margin_right = 40.0
+margin_bottom = -40.0
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ataque_fraco" type="RayCast2D" parent="Player"]
+position = Vector2( 0, 8 )
+enabled = true
+cast_to = Vector2( 70, -3 )
+collision_mask = 3
+
+[node name="ataque_forte" type="RayCast2D" parent="Player"]
+scale = Vector2( 1, 2 )
+enabled = true
+cast_to = Vector2( 40, -20 )
+collision_mask = 2

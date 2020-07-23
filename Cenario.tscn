@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Meteoro.tscn" type="PackedScene" id=1]
+[ext_resource path="res://plataforma_central.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Cenario.gd" type="Script" id=4]
+
+[sub_resource type="PhysicsMaterial" id=1]
+absorbent = true
+
+[node name="Cenario" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="RigidBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1836.38, 132.341 )
+mass = 4.08163
+physics_material_override = SubResource( 1 )
+
+[node name="plataforma_central" parent="." instance=ExtResource( 2 )]
+position = Vector2( 331.73, 1053.35 )
+
+[node name="plataforma_central2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 971.533, 1053.35 )
+
+[node name="plataforma_central3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1611.34, 1053.35 )

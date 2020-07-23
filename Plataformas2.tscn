@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Plataforma Curta.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Plataforma Longa.tscn" type="PackedScene" id=2]
+
+[node name="Plataformas2" type="Node2D"]
+
+[node name="RigidBody2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 496.129, 963.073 )
+
+[node name="RigidBody2D2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1438.17, 747.414 )
+
+[node name="Plataforma Longa2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 919.594, 597.004 )
+
+[node name="RigidBody2D3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 380.812, 727.209 )
+
+[node name="Plataforma Longa3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 484.079, 356.796 )
+
+[node name="RigidBody2D4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1471.85, 558.84 )
+
+[node name="Plataforma Longa4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1215.92, 374.756 )
+
+[node name="Plataforma Longa" parent="." instance=ExtResource( 2 )]
+position = Vector2( 938.379, 857.562 )

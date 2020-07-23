@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/Images/plataforma.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 212.144, 19.5058 )
+
+[node name="plataforma_aleatoria" type="StaticBody2D"]
+position = Vector2( 1.66901, 1.03615 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4.58674, 12.1658 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="plataforma" type="Sprite" parent="."]
+position = Vector2( 0.783752, -6.43307 )
+texture = ExtResource( 1 )
