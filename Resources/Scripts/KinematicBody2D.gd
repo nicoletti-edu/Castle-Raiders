@@ -8,19 +8,48 @@ export var hp_max = 100
 export var hp = 100
 export var damage = 10
 export var strong_damage = 20
-export var attack_cooldown = 500 #ms
-export var dash_cooldown = 1000 #ms
+
+# FLAGS
 
 #looking 1 = right 0 = left
-var blocking = 0 
-var fric = 5
 var looking = 1
-var attacking = 0
-var dashing = 0
-var velocity = Vector2()
-var next_dash_time = 0
-var next_attack_time = 0
 
+var blocking = 0 
+
+var attack_timer = null
+var can_attack = true
+var attack_timer_delay = 0.5
+
+var dash_timer = null
+var dash_timer_delay = 1.5
+var can_dash = true
+
+var i_frame = 0
+
+var fric = 5
+var velocity = Vector2()
+
+func _ready():
+	attack_timer = Timer.new()
+	attack_timer.set_one_shot(true)
+	attack_timer.set_wait_time(attack_timer_delay)
+	attack_timer.connect("timeout",self,"on_attack")
+	
+	dash_timer = Timer.new()
+	dash_timer.set_one_shot(true)
+	dash_timer.set_wait_time(dash_timer_delay)
+	dash_timer.connect("timeout",self,"on_dash")
+	
+	add_child(attack_timer)
+	add_child(dash_timer)
+	
+func on_attack():
+	can_attack = true
+
+func on_dash():
+	can_dash = true	
+
+#Slows the character down
 func friction():
 	if( velocity.x > 0):
 		velocity.x -= fric
@@ -38,11 +67,12 @@ func knockback(enemy_pos):
 		velocity.x += max_run_speed * 2
 		
 func hit(damage_taken,enemy_pos):
-	if(!blocking):
+	if(!blocking && !i_frame):
 		hp -= damage_taken
 		if(hp<0):
 			hp = 0
-	knockback(enemy_pos)
+	if(!i_frame):
+		knockback(enemy_pos)
 
 func deb():
 	var text = "Position[ x: {position_x}, y: {position_y} ]\nVelocity[ x: {velocity_x} , y: {velocity_y} ]\n\n".format({"position_x":get_position().x, "position_y":get_position().y, "velocity_x": velocity.x, "velocity_y":velocity.y})
@@ -58,14 +88,15 @@ func turn():
 	$ataque_forte.set_cast_to(current_cast)
 		
 	get_node( "AnimatedSprite" ).set_flip_h( !looking )
-
+	
 
 func get_input():
-
 	
-	#Verifica o chão pra pular
 	if is_on_floor() and Input.is_action_just_pressed('P1 up'):
 		velocity.y = jump_speed
+		
+	if Input.is_action_pressed("P1 test"):
+		i_frame = 1
 		
 	if Input.is_action_pressed("P1 right"):
 		velocity.x += run_speed
@@ -79,70 +110,63 @@ func get_input():
 			looking = 0
 			turn()
 	
-	if Input.is_action_just_pressed("P1 dash"):
-		if(!is_on_floor() && dashing == 0 ):
-			var now = OS.get_ticks_msec()
-			if now >= next_dash_time:
-				dashing = 1
-				velocity.x = velocity.x*2
-				next_dash_time = now + dash_cooldown
-		elif(is_on_floor()):
-			var now = OS.get_ticks_msec()
-			if now >= next_dash_time:
-				if(looking == 1):
-					velocity.x = velocity.x + 300
-				if(looking == 0):
-					velocity.x = velocity.x - 300
-				next_dash_time = now + dash_cooldown
+	if Input.is_action_just_pressed("P1 dash") && can_dash:
+		if(looking == 1):
+			velocity.x = velocity.x + 300
+		if(looking == 0):
+			velocity.x = velocity.x - 300
+		can_dash = false
+		dash_timer.start()
+
 				
 	if Input.is_action_pressed('P1 block'):
 		blocking = 1
 
-	if Input.is_action_pressed('P1 attack'):
-		attacking = 1
-		var now = OS.get_ticks_msec()
-		if now >= next_attack_time:
-			$AnimatedSprite.set_frame(0)
-			$AnimatedSprite.play("weak attack")
-			var target = $ataque_fraco.get_collider()
-			if target != null:
-#				if target.name.find("Player2") >= 0:
-					target.hit(damage,get_global_position())
-			next_attack_time = now + attack_cooldown
+	if Input.is_action_pressed('P1 attack') && can_attack:
+		#Play Animation
+		$AnimatedSprite.set_frame(0)
+		$AnimatedSprite.play("weak attack")
+		
+		var target = $ataque_fraco.get_collider()
+		if target != null:
+				target.hit(damage,get_global_position())
+				
+		can_attack = false
+		attack_timer.start()
 			
-	if Input.is_action_pressed('P1 strong attack'):
-		attacking = 1
-		var now = OS.get_ticks_msec()
-		if now >= next_attack_time:
-			var target = $ataque_forte.get_collider()
-			if target != null:
-					target.hit(strong_damage,get_global_position())
-			next_attack_time = now + attack_cooldown
-
-func _physics_process(delta):
+	if Input.is_action_pressed('P1 strong attack') && can_attack:	
+		var target = $ataque_forte.get_collider()
+		if target != null:
+				target.hit(strong_damage,get_global_position())
+				
+		can_attack = false
+		attack_timer.start()
 	
+func _process(delta):
+	deb()
+	
+	#Resets blocking
 	blocking = 0
 	
+	#Updates HP bar
 	get_node("HP").text = "HP: {hp}".format({"hp":hp})
 	get_node("Barra Vida").value = hp
-	if(is_on_floor()):
-		dashing = 0
-
-	friction()
-	
-	deb()
-	velocity.y += gravity * delta
-	
-#	Codigo da animação vvvvvvv
+		
+	#	Codigo da animação vvvvvvv
 
 #	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"):
 #		$AnimatedSprite.play("run")
 #	else:
 #		$AnimatedSprite.stop()
 
+func _physics_process(delta):
+	friction()
+	velocity.y += gravity * delta
+	
 	get_input()
 	
 #	Calculo do vetor movimento
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+
 
 
