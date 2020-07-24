@@ -139,7 +139,7 @@ func get_input():
 		can_attack = false
 		attack_timer.start()
 			
-func _process(delta):
+func _process(_delta):
 	#Resets blocking
 	blocking = 0
 	

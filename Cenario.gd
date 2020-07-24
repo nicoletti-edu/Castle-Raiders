@@ -4,6 +4,8 @@ var rng = RandomNumberGenerator.new()
 var rng_meteoro = RandomNumberGenerator.new()
 
 onready var meteoros = preload("res://Meteoro.tscn")
+var meteoro = null
+var meteoro_cai = null
 
 func _ready():
 	
@@ -15,9 +17,9 @@ func _ready():
 	var plataforma = plataforma_aleatoria.instance()
 	self.add_child(plataforma)
 	
-func _process(delta):
-	var meteoro_cai = rng_meteoro.randi_range(1,500)
+func _process(_delta):
+	meteoro_cai = rng_meteoro.randi_range(1,500)
 	if(meteoro_cai == 1):
-		var meteoro = meteoros.instance()
+		meteoro = meteoros.instance()
 		self.add_child(meteoro)
-		
+
