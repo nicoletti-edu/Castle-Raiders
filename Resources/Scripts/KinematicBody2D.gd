@@ -88,15 +88,17 @@ func turn():
 	$ataque_forte.set_cast_to(current_cast)
 		
 	get_node( "AnimatedSprite" ).set_flip_h( !looking )
-	
 
+func drop():
+	position.y += 1
+	
 func get_input():
 	
 	if is_on_floor() and Input.is_action_just_pressed('P1 up'):
 		velocity.y = jump_speed
-		
-	if Input.is_action_pressed("P1 test"):
-		i_frame = 1
+	
+	if Input.is_action_just_pressed("P1 down"):
+		drop()
 		
 	if Input.is_action_pressed("P1 right"):
 		velocity.x += run_speed

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
+[ext_resource path="res://Meteoros.tscn" type="PackedScene" id=1]
 [ext_resource path="res://plataforma_central.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Cenario.gd" type="Script" id=4]
 
@@ -14,3 +15,5 @@ position = Vector2( 971.533, 1053.35 )
 
 [node name="plataforma_central3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1611.34, 1053.35 )
+
+[node name="Meteoros" parent="." instance=ExtResource( 1 )]
