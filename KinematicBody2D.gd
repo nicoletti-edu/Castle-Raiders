@@ -12,7 +12,7 @@ export var strong_damage = 20
 # FLAGS
 
 #looking 1 = right 0 = left
-var looking = 1
+var looking = 0
 
 var blocking = 0 
 
@@ -101,6 +101,9 @@ func get_input():
 		if(looking):
 			looking = 0
 			turn()
+			
+	if Input.is_action_just_pressed("P2 down"):
+		position.y += 1
 			
 	if Input.is_action_just_pressed("P2 dash") && can_dash:
 		if(!is_on_floor()):
