@@ -13,13 +13,13 @@
 
 [resource]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 5 ) ],
 "loop": false,
 "name": "weak attack",
 "speed": 20.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "standing",
-"speed": 5.0
 } ]

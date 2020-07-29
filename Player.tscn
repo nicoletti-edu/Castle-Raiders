@@ -36,7 +36,8 @@ shape = SubResource( 1 )
 position = Vector2( 6, -5 )
 scale = Vector2( 0.5, 0.5 )
 frames = ExtResource( 1 )
-animation = "standing"
+animation = "idle"
+playing = true
 
 [node name="HP" type="Label" parent="Player"]
 margin_left = -40.0
@@ -71,3 +72,4 @@ scale = Vector2( 1, 2 )
 enabled = true
 cast_to = Vector2( 40, -20 )
 collision_mask = 2
+[connection signal="animation_finished" from="Player/AnimatedSprite" to="Player" method="_on_AnimatedSprite_animation_finished"]

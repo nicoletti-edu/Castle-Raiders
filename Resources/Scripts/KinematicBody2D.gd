@@ -122,9 +122,6 @@ func get_input():
 		blocking = 1
 
 	if Input.is_action_pressed('P1 attack') && can_attack:
-		#Play Animation
-		$AnimatedSprite.set_frame(0)
-		$AnimatedSprite.play("weak attack")
 		
 		var target = $ataque_fraco.get_collider()
 		if target != null:
@@ -152,12 +149,19 @@ func _process(_delta):
 	get_node("Barra Vida").value = hp
 		
 	#	Codigo da animação vvvvvvv
-
+	
+	if Input.is_action_pressed("P1 attack"):
+		$AnimatedSprite.play("weak attack")
+		
 #	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"):
 #		$AnimatedSprite.play("run")
 #	else:
 #		$AnimatedSprite.stop()
 
+func _on_AnimatedSprite_animation_finished():
+	if $AnimatedSprite.animation != 'idle':
+		$AnimatedSprite.play('idle')
+		
 func _physics_process(delta):
 	friction()
 	velocity.y += gravity * delta

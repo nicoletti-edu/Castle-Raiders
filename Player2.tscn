@@ -1,10 +1,22 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Resources/Images/Lanceiro/Player.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE4.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE3.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE2.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE1.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE5.png" type="Texture" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "standing",
+"speed": 5.0
+} ]
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.176471, 0.913725, 0.0470588, 1 )
@@ -23,10 +35,12 @@ jump_speed = -600
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Player2"]
-position = Vector2( -14, -5 )
+position = Vector2( -3, -13 )
 scale = Vector2( 0.5, 0.5 )
-frames = ExtResource( 1 )
+frames = SubResource( 4 )
 animation = "standing"
+frame = 3
+playing = true
 flip_h = true
 
 [node name="HP" type="Label" parent="Player2"]
@@ -61,3 +75,4 @@ scale = Vector2( 1, 2 )
 enabled = true
 cast_to = Vector2( -40, -20 )
 collision_mask = 2
+[connection signal="animation_finished" from="Player2/AnimatedSprite" to="Player2" method="_on_AnimatedSprite_animation_finished"]
