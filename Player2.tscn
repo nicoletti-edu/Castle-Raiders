@@ -14,7 +14,7 @@ extents = Vector2( 8, 32 )
 animations = [ {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
 "loop": true,
-"name": "standing",
+"name": "idle",
 "speed": 3.0
 } ]
 
@@ -38,9 +38,10 @@ shape = SubResource( 1 )
 position = Vector2( 0, -8 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 2 )
-animation = "standing"
+animation = "idle"
 frame = 2
 playing = true
+flip_h = true
 
 [node name="HP" type="Label" parent="Player2"]
 margin_left = -40.0
