@@ -16,6 +16,10 @@ var looking = 0
 
 var blocking = 0 
 
+var is_attacking = 0
+var is_strong_attacking = 0
+var is_running = 0
+
 var attack_timer = null
 var can_attack = true
 var attack_timer_delay = 0.5
@@ -91,12 +95,14 @@ func get_input():
 		velocity.y = jump_speed
 		
 	if Input.is_action_pressed('ui_right'):
+		is_running = 1
 		velocity.x += run_speed
 		if(!looking):
 			looking = 1
 			turn()
 		
 	if Input.is_action_pressed('ui_left'):
+		is_running = 1
 		velocity.x -= run_speed
 		if(looking):
 			looking = 0
@@ -123,6 +129,7 @@ func get_input():
 		blocking = 1
 
 	if Input.is_action_pressed('P2 attack') && can_attack:
+		is_attacking = 1
 		
 		var target = $ataque_fraco.get_collider()
 		if target != null:
@@ -131,7 +138,9 @@ func get_input():
 		can_attack = false
 		attack_timer.start()
 			
-	if Input.is_action_pressed('P2 strong attack') && can_attack:	
+	if Input.is_action_pressed('P2 strong attack') && can_attack:
+		is_strong_attacking = 1
+		
 		var target = $ataque_forte.get_collider()
 		if target != null:
 				target.hit(strong_damage,get_global_position())
@@ -140,6 +149,9 @@ func get_input():
 		attack_timer.start()
 			
 func _process(_delta):
+	
+	animations()
+	
 	#Resets blocking
 	blocking = 0
 	
@@ -148,18 +160,28 @@ func _process(_delta):
 	get_node("Barra Vida").value = hp
 		
 	#	Codigo da animação vvvvvvv
-	
-#	if Input.is_action_pressed("P2 attack"):
-#		$AnimatedSprite.play("weak attack")
 		
 #	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_left"):
 #		$AnimatedSprite.play("run")
-#	else:
-#		$AnimatedSprite.stop()
+#
+#	if Input.is_action_pressed("P2 strong attack") && can_attack:
+#		$AnimatedSprite.play("strong attack")
 
-func _on_AnimatedSprite_animation_finished():
-	if $AnimatedSprite.animation != 'idle':
+func animations():
+	if(is_attacking):
+		$AnimatedSprite.play("weak attack")
+	elif(is_strong_attacking):
+		$AnimatedSprite.play("strong attack")
+	elif(is_running):
+		$AnimatedSprite.play("run")
+	else:
 		$AnimatedSprite.play('idle')
+	
+func _on_AnimatedSprite_animation_finished():
+	is_attacking = 0
+	is_running = 0
+	is_strong_attacking = 0
+
 		
 func _physics_process(delta):
 	friction()
