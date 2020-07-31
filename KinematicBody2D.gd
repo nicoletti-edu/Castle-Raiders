@@ -149,7 +149,8 @@ func get_input():
 		attack_timer.start()
 			
 func _process(_delta):
-	
+
+	get_input()
 	animations()
 	
 	#Resets blocking
@@ -168,7 +169,9 @@ func _process(_delta):
 #		$AnimatedSprite.play("strong attack")
 
 func animations():
-	if(is_attacking):
+	if(is_attacking && is_running):
+		$AnimatedSprite.play("running attack")
+	elif(is_attacking):
 		$AnimatedSprite.play("weak attack")
 	elif(is_strong_attacking):
 		$AnimatedSprite.play("strong attack")
@@ -186,8 +189,6 @@ func _on_AnimatedSprite_animation_finished():
 func _physics_process(delta):
 	friction()
 	velocity.y += gravity * delta
-
-	get_input()
 	
 #	Calculo do vetor movimento
 	velocity = move_and_slide(velocity, Vector2(0, -1))

@@ -6,7 +6,8 @@ func _ready():
 	
 	rng.randomize()
 	var nmr_plataforma = rng.randi_range(1,3)
-	var local_plataforma = "res://Plataformas"+ str(nmr_plataforma) +".tscn"
+#	var local_plataforma = "res://Plataformas"+ str(nmr_plataforma) +".tscn"
+	var local_plataforma = "res://Plataformas1.tscn"
 	var plataforma_aleatoria = load(local_plataforma)
 
 	var plataforma = plataforma_aleatoria.instance()

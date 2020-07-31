@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Meteoros.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Images/cenário/castelo pronto definitivo .jpeg" type="Texture" id=2]
 [ext_resource path="res://Resources/Images/plataforma/plataforma normal/plataforma inteira baixo.png" type="Texture" id=3]
 [ext_resource path="res://Cenario.gd" type="Script" id=4]
 
@@ -80,6 +81,10 @@ points = PoolVector2Array( 44, 64, 0, 64, 0, 4, 44, 4 )
 
 [node name="Cenario" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
 
 [node name="Meteoros" parent="." instance=ExtResource( 1 )]
 
