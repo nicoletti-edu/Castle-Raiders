@@ -112,17 +112,12 @@ func get_input():
 		position.y += 1
 			
 	if Input.is_action_just_pressed("P2 dash") && can_dash:
-		if(!is_on_floor()):
-			#Counts between the time now and the next dash
-				velocity.x = velocity.x*2
-				can_dash = false
-				dash_timer.start()
-				
-		elif(is_on_floor()):
-				if(looking == 1):
-					velocity.x = velocity.x + 300
-				if(looking == 0):
-					velocity.x = velocity.x - 300
+		if(looking == 1):
+			velocity.x = velocity.x + 300
+		if(looking == 0):
+			velocity.x = velocity.x - 300
+		can_dash = false
+		dash_timer.start()
 
 				
 	if Input.is_action_pressed('P2 block'):
