@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Plataforma Curta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Plataforma Longa.tscn" type="PackedScene" id=2]
+[ext_resource path="res://plataforma curta tile map.tscn" type="PackedScene" id=3]
 
 [node name="Plataformas1" type="Node"]
 
@@ -22,3 +23,6 @@ position = Vector2( 993.313, 218.246 )
 
 [node name="Plataforma Longa" parent="." instance=ExtResource( 2 )]
 position = Vector2( 912, 896 )
+
+[node name="plataforma curta" parent="." instance=ExtResource( 3 )]
+position = Vector2( 912, 688 )
