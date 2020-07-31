@@ -1,36 +1,24 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Plataforma Curta.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Plataforma Longa.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Resources/Images/plataforma/plataforma 64x64/new_tileset.tres" type="TileSet" id=3]
 
 [node name="Plataformas1" type="Node"]
 
 [node name="Plataforma Curta" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 403.256, 679.968 )
 
 [node name="Plataforma Curta2" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 596.452, 427.279 )
 
 [node name="Plataforma Curta3" parent="." instance=ExtResource( 1 )]
-visible = false
 position = Vector2( 1534.79, 765.803 )
 
 [node name="Plataforma Longa2" parent="." instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 1304.44, 495.432 )
 
 [node name="Plataforma Longa3" parent="." instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 993.313, 218.246 )
 
 [node name="Plataforma Longa" parent="." instance=ExtResource( 2 )]
-visible = false
 position = Vector2( 912, 896 )
-
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 3 )
-format = 1
-tile_data = PoolIntArray( 196619, 1, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 2, 0, 393220, 1, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 2, 0, 393234, 1, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 2, 0, 655363, 1, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 2, 0, 655380, 1, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0, 655386, 0, 0, 655387, 0, 0, 655388, 2, 0, 917513, 1, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 2, 0 )
