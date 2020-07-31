@@ -1,43 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Plataforma Longa.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Plataforma Curta.tscn" type="PackedScene" id=2]
+[ext_resource path="res://PlatformSize4.tscn" type="PackedScene" id=1]
+[ext_resource path="res://PlatformSize3.tscn" type="PackedScene" id=2]
+[ext_resource path="res://PlatformSize2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PlatformSize5.tscn" type="PackedScene" id=4]
 
-[node name="Node2D" type="Node2D"]
-position = Vector2( 0, 72 )
+[node name="Plataformas3" type="Node"]
 
-[node name="RigidBody2D5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1360, 576 )
+[node name="PlatformNum1" parent="." instance=ExtResource( 4 )]
+position = Vector2( 230.767, 888.123 )
 
-[node name="Plataforma Longa2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 944, 432 )
+[node name="PlatformNum2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 489.39, 553.044 )
 
-[node name="Plataforma Longa3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 480, 248 )
+[node name="PlatformNum3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 805.544, 729.227 )
 
-[node name="RigidBody2D6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 128, 560 )
+[node name="PlatformNum4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1131.86, 843.626 )
 
-[node name="Plataforma Longa4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1656, 280 )
+[node name="PlatformNum5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1399.78, 636.07 )
 
-[node name="RigidBody2D7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1216, 136 )
-
-[node name="RigidBody2D8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 760, 40 )
-
-[node name="RigidBody2D2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 576, 784 )
-
-[node name="Plataforma Longa" parent="." instance=ExtResource( 1 )]
-position = Vector2( 960, 752 )
-
-[node name="RigidBody2D3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1344, 776 )
-
-[node name="RigidBody2D4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1600, 720 )
-
-[node name="RigidBody2D" parent="." instance=ExtResource( 2 )]
-position = Vector2( 320, 808 )
+[node name="PlatformNum6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1846.67, 803.937 )
