@@ -32,30 +32,30 @@ extents = Vector2( 8, 32 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 26 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 23 ) ],
-"loop": true,
-"name": "running attack",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "idle",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 24 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "running attack",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 11 ) ],
 "loop": false,
 "name": "weak attack",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ) ],
-"loop": true,
-"name": "run",
-"speed": 8.0
-}, {
 "frames": [ ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 19 ) ],
 "loop": false,
 "name": "strong attack",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "run",
+"speed": 8.0
 } ]
 
 [sub_resource type="StyleBoxFlat" id=3]
@@ -78,8 +78,8 @@ shape = SubResource( 1 )
 position = Vector2( 0, -8 )
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 2 )
-animation = "running attack"
-frame = 4
+animation = "idle"
+frame = 1
 playing = true
 flip_h = true
 
