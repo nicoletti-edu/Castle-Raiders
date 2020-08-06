@@ -35,7 +35,7 @@ func _ready():
 	attack_timer.set_wait_time(attack_timer_delay)
 	attack_timer.connect("timeout",self,"on_attack")
 	
-	dash_timer = Timer.new()
+	var dash_timer = Timer.new()
 	dash_timer.set_one_shot(true)
 	dash_timer.set_wait_time(dash_timer_delay)
 	dash_timer.connect("timeout",self,"on_dash")
