@@ -89,7 +89,9 @@ func movement_controller(direction):
 func weak_controller():
 	if !weak_activable:
 		return
+	print("Usou a habilidade")
 	var target = $WeakSkill.get_collider()
+	print(target)
 	if target != null:
 		target.hit(damage, get_global_position())				
 	wait_weak()

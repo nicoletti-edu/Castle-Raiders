@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Personage.gd" type="Script" id=1]
 
+[sub_resource type="RectangleShape2D" id=1]
+
 [node name="Personage" type="KinematicBody2D"]
 collision_layer = 2
+collision_mask = 2
 script = ExtResource( 1 )
 
 [node name="hp" type="Label" parent="."]
@@ -26,15 +29,18 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 
 [node name="WeakSkill" type="RayCast2D" parent="."]
 position = Vector2( 0, 8 )
 enabled = true
 cast_to = Vector2( 50, -3 )
 collision_mask = 2
+collide_with_areas = true
 
 [node name="StrongSkill" type="RayCast2D" parent="."]
 scale = Vector2( 1, 2 )
 enabled = true
 cast_to = Vector2( 40, -20 )
 collision_mask = 2
+collide_with_areas = true

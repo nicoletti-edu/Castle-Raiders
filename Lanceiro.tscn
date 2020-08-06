@@ -37,3 +37,9 @@ frames = SubResource( 1 )
 [node name="Collision" parent="." index="3"]
 position = Vector2( -7.2011, 5.8408 )
 shape = SubResource( 2 )
+
+[node name="WeakSkill" parent="." index="4"]
+collide_with_areas = false
+
+[node name="StrongSkill" parent="." index="5"]
+collide_with_areas = false
