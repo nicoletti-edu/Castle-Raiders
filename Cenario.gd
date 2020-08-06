@@ -4,7 +4,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	
-	rng.randomize()
+	#rng.randomize()
 	var nmr_plataforma = rng.randi_range(1,3)
 	var local_plataforma = "res://Plataformas"+ str(nmr_plataforma) +".tscn"
 	var plataforma_aleatoria = load(local_plataforma)
