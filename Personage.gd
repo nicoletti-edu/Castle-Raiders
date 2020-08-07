@@ -128,14 +128,8 @@ func dash_controller():
 	
 
 func turn():
-	var current_cast = $WeakSkill.get_cast_to()
-	current_cast.x = -current_cast.x
-	$WeakSkill.set_cast_to(current_cast)
-	
-	current_cast = $StrongSkill.get_cast_to()
-	current_cast.x = -current_cast.x
-	$StrongSkill.set_cast_to(current_cast)
-		
+	$WeakSkill.set_cast_to(-$WeakSkill.get_cast_to())
+	$StrongSkill.set_cast_to(-$StrongSkill.get_cast_to())
 	$Sprite.set_flip_h(looking)	
 	
 	
