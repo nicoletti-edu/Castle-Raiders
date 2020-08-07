@@ -9,8 +9,8 @@
 [node name="Cenario" parent="." instance=ExtResource( 1 )]
 
 [node name="Lanceiro" parent="." instance=ExtResource( 4 )]
-position = Vector2( 624.112, 955.008 )
+position = Vector2( 622.407, 991.215 )
 
 [node name="Cavaleiro" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1333.39, 947.755 )
+position = Vector2( 1339.11, 988.735 )
 collision_layer = 2

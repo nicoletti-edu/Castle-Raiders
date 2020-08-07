@@ -26,9 +26,11 @@ var damage = 10
 var gravity = 1000
 
 	# Movement
+const LOOKING_RIGHT = false
+const LOOKING_LEFT = true
 var velocity = Vector2()
 var friction_value = 5
-var looking = 0 # 1 = right | 0 = left
+var looking = LOOKING_RIGHT
 
 	# Skills
 		# weak
@@ -79,14 +81,10 @@ func movement_controller(direction):
 		return
 	elif direction == 'left':
 		velocity.x -= run_speed
-		if looking == 0:
-			looking = 1
-			turn()
+		flip(LOOKING_LEFT)
 	elif direction == 'right':
 		velocity.x += run_speed
-		if looking == 1:
-			looking = 0	
-			turn()
+		flip(LOOKING_RIGHT)
 
 
 func weak_controller():
@@ -120,19 +118,32 @@ func jump_controller():
 func dash_controller():
 	if !dash_activable:
 		return
-	if(looking == 0):
-		velocity.x = velocity.x + dash_speed
-	if(looking == 1):
+	if(looking):
 		velocity.x = velocity.x - dash_speed
+	else:
+		velocity.x = velocity.x + dash_speed
 	wait_dash()
+
+
+func flip(looking_direction):
+	if looking == looking_direction:
+		return
+	looking = looking_direction
+	flip_skills()
+	$Sprite.set_flip_h(convert_looking())
 	
 
-func turn():
+func flip_skills():
 	$WeakSkill.set_cast_to(-$WeakSkill.get_cast_to())
 	$StrongSkill.set_cast_to(-$StrongSkill.get_cast_to())
-	$Sprite.set_flip_h(looking)	
 	
-	
+
+func convert_looking():
+	if looking:
+		return 1
+	return 0
+
+
 func hit(damage_taken,enemy_pos):
 	current_hp -= damage_taken
 	if(current_hp<0):
@@ -213,7 +224,7 @@ func start_dash():
 	dash_timer.connect("timeout",self,"on_dash")
 	add_child(dash_timer)
 
-	
+
 func friction():
 	if( velocity.x > 0):
 		velocity.x -= friction_value
