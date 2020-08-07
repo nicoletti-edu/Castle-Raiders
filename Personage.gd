@@ -76,14 +76,17 @@ func get_input():
 func movement_controller(direction):
 	if direction == 'down':
 		position.y += 1
-	if direction == 'left':
+		return
+	elif direction == 'left':
 		velocity.x -= run_speed
-		looking = 1
+		if looking == 0:
+			looking = 1
+			turn()
 	elif direction == 'right':
 		velocity.x += run_speed
-		looking = 0	
-	turn()
-	#$Sprite.set_flip_h(looking)
+		if looking == 1:
+			looking = 0	
+			turn()
 
 
 func weak_controller():
@@ -124,11 +127,6 @@ func dash_controller():
 	wait_dash()
 	
 
-func hit(damage_taken,enemy_pos):
-	current_hp -= damage_taken
-	if(current_hp<0):
-		current_hp = 0
-
 func turn():
 	var current_cast = $WeakSkill.get_cast_to()
 	current_cast.x = -current_cast.x
@@ -138,7 +136,13 @@ func turn():
 	current_cast.x = -current_cast.x
 	$StrongSkill.set_cast_to(current_cast)
 		
-	$Sprite.set_flip_h(looking)			
+	$Sprite.set_flip_h(looking)	
+	
+	
+func hit(damage_taken,enemy_pos):
+	current_hp -= damage_taken
+	if(current_hp<0):
+		current_hp = 0		
 
 	
 func wait_weak():
