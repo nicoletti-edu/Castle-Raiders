@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 # Public Identifiers
 
+signal on_hp_change(hp)
+
 # Protected Identifiers
 	# Config buttons
 var walk_left_button = 'none'
@@ -78,11 +80,15 @@ func movement_controller(direction):
 		position.y += 1
 	if direction == 'left':
 		velocity.x -= run_speed
-		looking = 1
+		if(looking == 0):
+			looking = 1
+			turn()
 	elif direction == 'right':
 		velocity.x += run_speed
-		looking = 0	
-	turn()
+		if(looking == 1):
+			looking = 0
+			turn()
+
 	#$Sprite.set_flip_h(looking)
 
 
@@ -128,6 +134,7 @@ func hit(damage_taken,enemy_pos):
 	current_hp -= damage_taken
 	if(current_hp<0):
 		current_hp = 0
+	emit_signal("on_hp_change", current_hp)
 
 func turn():
 	var current_cast = $WeakSkill.get_cast_to()
@@ -233,8 +240,6 @@ func _ready():
 
 	
 func _process(_delta):
-	$hp.text = "HP: {hp}".format({"hp":current_hp})
-	$lifeBar.value = current_hp
 	get_input()
 
 	
@@ -242,3 +247,7 @@ func _physics_process(delta):
 	friction()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+
+func _on_Personage_on_hp_change(hp):
+	pass # Replace with function body.

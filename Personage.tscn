@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Personage.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Images/Bars/barra-de-vida-prenchimento-1.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Images/Bars/barra-de-vida-fundo.png" type="Texture" id=3]
+[ext_resource path="res://HP_Bar.gd" type="Script" id=4]
+[ext_resource path="res://Resources/Images/Bars/barra-de-vida-estrutura.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -8,23 +12,6 @@
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )
-
-[node name="hp" type="Label" parent="."]
-margin_left = 93.7544
-margin_top = -16.4864
-margin_right = 112.754
-margin_bottom = -2.48636
-text = "HP"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="lifeBar" type="ProgressBar" parent="."]
-margin_right = 202.0
-margin_bottom = 48.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 
@@ -44,3 +31,27 @@ enabled = true
 cast_to = Vector2( 40, -20 )
 collision_mask = 2
 collide_with_areas = true
+
+[node name="HP_Bar" type="TextureProgress" parent="."]
+margin_left = -32.0
+margin_top = -120.0
+margin_right = 32.0
+margin_bottom = -56.0
+value = 100.0
+texture_under = ExtResource( 3 )
+texture_over = ExtResource( 5 )
+texture_progress = ExtResource( 2 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = -16.0
+margin_top = -80.0
+margin_right = 24.0
+margin_bottom = -66.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="on_hp_change" from="." to="HP_Bar" method="_on_Personage_on_hp_change"]

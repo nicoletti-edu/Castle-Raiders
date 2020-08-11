@@ -17,30 +17,30 @@ extents = Vector2( 6.71048, 31.8535 )
 
 [node name="Cavaleiro" instance=ExtResource( 1 )]
 collision_layer = 2147483650
+collision_mask = 1
 script = ExtResource( 3 )
 
-[node name="hp" parent="." index="0"]
-margin_left = -4.0
-margin_top = -139.0
-margin_right = 14.0
-margin_bottom = -125.0
-
-[node name="lifeBar" parent="." index="1"]
-margin_left = -60.5907
-margin_top = -70.5174
-margin_right = 62.4093
-margin_bottom = -45.5174
-
-[node name="Sprite" parent="." index="2"]
+[node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
 
-[node name="Collision" parent="." index="3"]
+[node name="Collision" parent="." index="1"]
 position = Vector2( 0, 7.09342 )
 shape = SubResource( 2 )
 
-[node name="WeakSkill" parent="." index="4"]
+[node name="WeakSkill" parent="." index="2"]
 collide_with_areas = false
 
-[node name="StrongSkill" parent="." index="5"]
+[node name="StrongSkill" parent="." index="3"]
 collide_with_areas = false
+
+[node name="HP_Bar" parent="." index="4"]
+margin_top = -96.0
+margin_right = 364.0
+margin_bottom = -32.0
+
+[node name="Label" parent="." index="5"]
+margin_left = 96.0
+margin_top = 8.0
+margin_right = 144.0
+margin_bottom = 22.0
