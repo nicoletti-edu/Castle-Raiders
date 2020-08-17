@@ -7,6 +7,7 @@
 [ext_resource path="res://Resources/Images/Bars/barra-de-vida-estrutura.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.5, 32 )
 
 [node name="Personage" type="KinematicBody2D"]
 collision_layer = 2

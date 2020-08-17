@@ -40,8 +40,8 @@ size_flags_vertical = 4
 custom_constants/separation = 100
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-margin_left = 509.0
-margin_right = 1409.0
+margin_left = 510.0
+margin_right = 1410.0
 margin_bottom = 108.0
 rect_min_size = Vector2( 900, 0 )
 size_flags_horizontal = 4

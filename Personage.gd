@@ -128,12 +128,18 @@ func dash_controller():
 	if(looking == 1):
 		velocity.x = velocity.x - dash_speed
 	wait_dash()
-	
+
+func knockback(enemy_pos):
+	if(enemy_pos.x>get_global_position().x):
+		velocity.x -= max_run_speed * 2
+	if(enemy_pos.x<get_global_position().x):
+		velocity.x += max_run_speed * 2
 
 func hit(damage_taken,enemy_pos):
 	current_hp -= damage_taken
 	if(current_hp<0):
 		current_hp = 0
+	knockback(enemy_pos)
 	emit_signal("on_hp_change", current_hp)
 
 func turn():
