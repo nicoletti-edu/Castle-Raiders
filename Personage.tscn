@@ -32,7 +32,7 @@ cast_to = Vector2( 40, -20 )
 collision_mask = 2
 collide_with_areas = true
 
-[node name="HP_Bar" type="TextureProgress" parent="."]
+[node name="HPBar" type="TextureProgress" parent="."]
 margin_left = -32.0
 margin_top = -120.0
 margin_right = 32.0
@@ -54,4 +54,4 @@ margin_bottom = -66.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="on_hp_change" from="." to="HP_Bar" method="_on_Personage_on_hp_change"]
+[connection signal="on_hp_change" from="." to="HPBar" method="_on_Personage_on_hp_change"]

@@ -158,17 +158,10 @@ func hit(damage_taken,enemy_pos):
 	knockback(enemy_pos)
 	emit_signal("on_hp_change", current_hp)
 
-func turn():
-	var current_cast = $WeakSkill.get_cast_to()
-	current_cast.x = -current_cast.x
-	$WeakSkill.set_cast_to(current_cast)
-	
-	current_cast = $StrongSkill.get_cast_to()
-	current_cast.x = -current_cast.x
-	$StrongSkill.set_cast_to(current_cast)
-		
-	$Sprite.set_flip_h(looking)			
 
+func _on_Personage_on_hp_change(hp):
+	pass # Replace with function body.
+	
 	
 func wait_weak():
 	weak_activable = false
@@ -269,7 +262,3 @@ func _physics_process(delta):
 	friction()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-
-
-func _on_Personage_on_hp_change(hp):
-	pass # Replace with function body.
