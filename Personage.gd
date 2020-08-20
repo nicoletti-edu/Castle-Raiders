@@ -29,8 +29,10 @@ var gravity = 1000
 
 	# Movement
 var velocity = Vector2()
+const LOOKING_RIGHT = false
+const LOOKING_LEFT = true
+var looking = LOOKING_RIGHT # 1 = right | 0 = left
 var friction_value = 5
-var looking = 0 # 1 = right | 0 = left
 
 	# Skills
 		# weak
@@ -79,19 +81,13 @@ func movement_controller(direction):
 	if direction == 'down':
 		position.y += 1
 	if direction == 'left':
-		velocity.x -= run_speed
-		if(looking == 0):
-			looking = 1
-			turn()
+		velocity.x -= move_speed
+		flip(LOOKING_LEFT)
 	elif direction == 'right':
-		velocity.x += run_speed
-		if(looking == 1):
-			looking = 0
-			turn()
-
-	#$Sprite.set_flip_h(looking)
-
-
+		velocity.x += move_speed
+		flip(LOOKING_RIGHT)
+		
+		
 func weak_controller():
 	if !weak_activable:
 		return
@@ -123,11 +119,31 @@ func jump_controller():
 func dash_controller():
 	if !dash_activable:
 		return
-	if(looking == 0):
+	if(looking == LOOKING_RIGHT):
 		velocity.x = velocity.x + dash_speed
-	if(looking == 1):
+	if(looking == LOOKING_LEFT):
 		velocity.x = velocity.x - dash_speed
 	wait_dash()
+	
+	
+func flip(looking_direction):
+	if looking == looking_direction:
+		return
+	looking = looking_direction
+	flip_skills()
+	$Sprite.set_flip_h(convert_looking())
+
+
+func flip_skills():
+	$WeakSkill.set_cast_to(-$WeakSkill.get_cast_to())
+	$StrongSkill.set_cast_to(-$StrongSkill.get_cast_to())
+	
+
+func convert_looking():
+	if looking:
+		return 1
+	return 0
+
 
 func knockback(enemy_pos):
 	if(enemy_pos.x>get_global_position().x):
