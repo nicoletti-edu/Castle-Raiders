@@ -14,11 +14,6 @@ var strong_skill_button = 'none'
 var jump_skill_button = 'none'
 var dash_skill_button = 'none'
 
-	# Stats APAGAR
-var run_speed = 10
-var max_run_speed = 250
-var hp_max = 100
-
 	# Stats
 var move_speed = 10
 var max_move_speed = 250
@@ -91,9 +86,7 @@ func movement_controller(direction):
 func weak_controller():
 	if !weak_activable:
 		return
-	print("Usou a habilidade")
 	var target = $WeakSkill.get_collider()
-	print(target)
 	if target != null:
 		target.hit(damage, get_global_position())				
 	wait_weak()
@@ -147,9 +140,9 @@ func convert_looking():
 
 func knockback(enemy_pos):
 	if(enemy_pos.x>get_global_position().x):
-		velocity.x -= max_run_speed * 2
+		velocity.x -= max_move_speed * 2
 	if(enemy_pos.x<get_global_position().x):
-		velocity.x += max_run_speed * 2
+		velocity.x += max_move_speed * 2
 
 func hit(damage_taken,enemy_pos):
 	current_hp -= damage_taken
@@ -157,10 +150,6 @@ func hit(damage_taken,enemy_pos):
 		current_hp = 0
 	knockback(enemy_pos)
 	emit_signal("on_hp_change", current_hp)
-
-
-func _on_Personage_on_hp_change(hp):
-	pass # Replace with function body.
 	
 	
 func wait_weak():
@@ -243,9 +232,9 @@ func friction():
 		velocity.x -= friction_value
 	if( velocity.x < 0):
 		velocity.x += friction_value
-	if(velocity.x > max_run_speed):
+	if(velocity.x > max_move_speed):
 		velocity.x -= friction_value * 1.5
-	if(velocity.x < -max_run_speed):
+	if(velocity.x < -max_move_speed):
 		velocity.x += friction_value * 1.5
 
 		
