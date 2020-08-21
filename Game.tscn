@@ -42,28 +42,28 @@ animations = [ {
 "name": "idle2",
 "speed": 2.0
 }, {
-"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
-"loop": false,
-"name": "weak attack",
-"speed": 15.0
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "jumping",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"loop": false,
+"name": "weak attack",
+"speed": 15.0
 } ]
 
-[sub_resource type="Curve2D" id=3]
+[sub_resource type="Curve2D" id=2]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 64, -16, 0, 0, 0, 0, 56, -32, 0, 0, 0, 0, 40, -8, 0, 0, 0, 0, 16, -32, 0, 0, 0, 0, 8, -8, 0, 0, 0, 0, 8, -8, 0, 0, 0, 0, 16, 8, 0, 0, 0, 0, 40, -24, 0, 0, 0, 0, 56, 8, 0, 0, 0, 0, 64, -16 )
 }
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 29 ), ExtResource( 27 ), ExtResource( 28 ) ],
 "loop": true,
@@ -82,11 +82,13 @@ position = Vector2( 624.112, 955.008 )
 position = Vector2( 1333.39, 947.755 )
 collision_layer = 2
 
+[node name="Sprite" parent="Cavaleiro" index="0"]
+animation = "idle"
+frame = 3
+playing = true
+
 [node name="Collision" parent="Cavaleiro" index="1"]
 position = Vector2( 0, 8 )
-
-[node name="HP_Bar" parent="Cavaleiro" index="4"]
-script = null
 
 [node name="Barbaro" parent="." instance=ExtResource( 8 )]
 
@@ -99,7 +101,7 @@ playing = true
 
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 1752, 304 )
-curve = SubResource( 3 )
+curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
 position = Vector2( 64, -16 )
@@ -110,7 +112,7 @@ rotate = false
 position = Vector2( 35.7771, 53.6656 )
 rotation = 2.03444
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 frame = 1
 playing = true
 flip_h = true
