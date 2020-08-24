@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/meteor_falling.wav-e2cff82d696ba4bc692c0f59d3b8df1d.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/Meteor/meteor_falling.wav"
+dest_files=[ "res://.import/meteor_falling.wav-e2cff82d696ba4bc692c0f59d3b8df1d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

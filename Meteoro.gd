@@ -11,7 +11,10 @@ func _process(delta):
 	if(colidingBodies.size() > 0):
 		colidingBodies[0].queue_free()
 		$AnimatedSprite.play("explode")
+		$Falling.stop()
+		$Explosion.play()
 		self.mode = 1
 		yield($AnimatedSprite , "animation_finished")
+		yield($Explosion , "finished")
 		self.queue_free()
 		
