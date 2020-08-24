@@ -1,20 +1,27 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Resources/Images/Menu/tipografia do jogo/8-Bit Madness.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Resources/Images/Menu/icones e tals/faca gatuna 128x128 .png" type="Texture" id=2]
 [ext_resource path="res://Resources/Images/Menu/icones e tals/espada cavaleiro 128x128 .png" type="Texture" id=3]
 [ext_resource path="res://Resources/Images/Menu/icones e tals/machado barbaro 128x128 .png" type="Texture" id=4]
 [ext_resource path="res://Resources/Images/Menu/icones e tals/lança grid 128x256.png" type="Texture" id=5]
+[ext_resource path="res://Start Menu.gd" type="Script" id=6]
+[ext_resource path="res://Resources/Images/Menu/icones e tals/mouse.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 76
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 76
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 56
 font_data = ExtResource( 1 )
 
 [node name="Node" type="Node"]
+script = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -32,14 +39,13 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_top = 211.0
 margin_right = 1920.0
-margin_bottom = 869.0
+margin_bottom = 866.0
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
 custom_constants/separation = 100
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="Text" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 margin_left = 510.0
 margin_right = 1410.0
 margin_bottom = 108.0
@@ -48,14 +54,28 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 custom_fonts/normal_font = SubResource( 1 )
 tab_size = 1
-text = "Escolha o seu personagem
+text = "Escolha o seu personagem:
+"
+fit_content_height = true
+
+[node name="Player" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+margin_left = 820.0
+margin_top = 208.0
+margin_right = 1100.0
+margin_bottom = 316.0
+rect_min_size = Vector2( 280, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+custom_fonts/normal_font = SubResource( 2 )
+tab_size = 1
+text = "Player 1
 "
 fit_content_height = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 208.0
+margin_top = 416.0
 margin_right = 1920.0
-margin_bottom = 658.0
+margin_bottom = 866.0
 rect_min_size = Vector2( 1920, 400 )
 size_flags_vertical = 6
 custom_constants/separation = 100
@@ -80,11 +100,17 @@ margin_top = 51.8499
 margin_right = 423.8
 margin_bottom = 119.85
 size_flags_horizontal = 5
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "Cavaleiro"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="MarginContainer/VBoxContainer/HBoxContainer/Button"]
+visible = false
+position = Vector2( 147.976, -79.486 )
+rotation = 1.5708
+texture = ExtResource( 7 )
 
 [node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 610.0
@@ -105,11 +131,17 @@ margin_top = 53.8499
 margin_right = 429.8
 margin_bottom = 121.85
 size_flags_horizontal = 5
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "Lanceiro"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="MarginContainer/VBoxContainer/HBoxContainer/Button2"]
+visible = false
+position = Vector2( 156.929, -87.9617 )
+rotation = 1.5708
+texture = ExtResource( 7 )
 
 [node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 1010.0
@@ -130,11 +162,17 @@ margin_top = 49.8499
 margin_right = 441.8
 margin_bottom = 117.85
 size_flags_horizontal = 5
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "Barbaro"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="MarginContainer/VBoxContainer/HBoxContainer/Button3"]
+visible = false
+position = Vector2( 148.93, -85.8427 )
+rotation = 1.5708
+texture = ExtResource( 7 )
 
 [node name="Button4" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 1410.0
@@ -155,8 +193,26 @@ margin_top = 51.8499
 margin_right = 459.8
 margin_bottom = 119.85
 size_flags_horizontal = 5
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "Gatuna"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="MarginContainer/VBoxContainer/HBoxContainer/Button4"]
+visible = false
+position = Vector2( 153.645, -90.0806 )
+rotation = 1.5708
+texture = ExtResource( 7 )
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_Button2_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_Button2_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Button3" to="." method="_on_Button3_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Button3" to="." method="_on_Button3_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/HBoxContainer/Button4" to="." method="_on_Button4_focus_entered"]
+[connection signal="focus_exited" from="MarginContainer/VBoxContainer/HBoxContainer/Button4" to="." method="_on_Button4_focus_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Button4" to="." method="_on_Button4_pressed"]

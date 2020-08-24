@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://Game.tscn")
+	get_tree().change_scene("res://Start Menu.tscn")
 
 func _on_Button_focus_entered():
 	$MarginContainer/VBoxContainer/VBoxContainer/Button/Sprite.visible = true
