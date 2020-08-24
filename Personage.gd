@@ -6,13 +6,14 @@ signal on_hp_change(hp)
 
 # Protected Identifiers
 	# Config buttons
-var walk_left_button = 'none'
-var walk_right_button = 'none'
-var walk_down_button = 'none'
-var weak_skill_button = 'none'
-var strong_skill_button = 'none'
-var jump_skill_button = 'none'
-var dash_skill_button = 'none'
+var walk_left_button = null
+var walk_right_button = null
+var walk_down_button = null
+var weak_skill_button = null
+var strong_skill_button = null
+var jump_skill_button = null
+var dash_skill_button = null
+var id = null
 
 	# Stats
 var move_speed = 10
@@ -53,6 +54,25 @@ var dash_timer = null
 
 
 # Methods Created
+
+func playerOne():
+	walk_left_button = 'ui_a'
+	walk_right_button = 'ui_d'
+	walk_down_button = 'ui_s'
+	weak_skill_button = 'ui_e'
+	strong_skill_button = 'ui_q'
+	dash_skill_button = 'ui_r'
+	jump_skill_button = 'ui_w'
+	
+func playerTwo():
+	walk_left_button = 'ui_j'
+	walk_right_button = 'ui_l'
+	walk_down_button = 'ui_k'
+	weak_skill_button = 'ui_u'
+	strong_skill_button = 'ui_o'
+	dash_skill_button = 'ui_y'
+	jump_skill_button = 'ui_i'
+
 func get_input():	
 	# Movement
 	if Input.is_action_pressed(walk_left_button):
@@ -241,8 +261,6 @@ func friction():
 # Standard Methods
 func _ready():
 	start_skills()
-
-	
 func _process(_delta):
 	get_input()
 

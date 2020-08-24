@@ -16,7 +16,6 @@ animations = [ {
 extents = Vector2( 7.37504, 31.6092 )
 
 [node name="Lanceiro" instance=ExtResource( 1 )]
-collision_mask = 1
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
@@ -33,11 +32,6 @@ collide_with_areas = false
 
 [node name="StrongSkill" parent="." index="3"]
 collide_with_areas = false
-
-[node name="HP_Bar" parent="." index="4"]
-margin_top = -96.0
-margin_right = 364.0
-margin_bottom = -32.0
 
 [node name="Label" parent="." index="5"]
 margin_left = -40.0

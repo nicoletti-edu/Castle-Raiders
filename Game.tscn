@@ -39,7 +39,12 @@ position = Vector2( 35.7771, 53.6656 )
 rotation = 2.03444
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 flip_h = true
 script = ExtResource( 26 )
+
+[node name="PlayerOneSpawn" type="Position2D" parent="."]
+position = Vector2( 480, 928 )
+
+[node name="PlayerTwoSpawn" type="Position2D" parent="."]
+position = Vector2( 1440, 928 )
