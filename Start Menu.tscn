@@ -88,6 +88,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 300, 450 )
 size_flags_vertical = 0
 icon = ExtResource( 3 )
+flat = true
 expand_icon = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/Button"]
@@ -119,6 +120,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 300, 450 )
 size_flags_vertical = 0
 icon = ExtResource( 5 )
+flat = true
 expand_icon = true
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/Button2"]
@@ -150,6 +152,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 300, 450 )
 size_flags_vertical = 0
 icon = ExtResource( 4 )
+flat = true
 expand_icon = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/Button3"]
@@ -181,6 +184,7 @@ margin_bottom = 450.0
 rect_min_size = Vector2( 300, 450 )
 size_flags_vertical = 0
 icon = ExtResource( 2 )
+flat = true
 expand_icon = true
 
 [node name="RichTextLabel4" type="RichTextLabel" parent="MarginContainer/VBoxContainer/HBoxContainer/Button4"]
