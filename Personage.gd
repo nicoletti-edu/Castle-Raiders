@@ -30,6 +30,8 @@ const LOOKING_LEFT = true
 var looking = LOOKING_RIGHT # 1 = right | 0 = left
 var friction_value = 5
 
+	# Animation
+
 	# Skills
 		# weak
 var weak_damage = damage
@@ -54,24 +56,6 @@ var dash_timer = null
 
 
 # Methods Created
-
-func playerOne():
-	walk_left_button = 'ui_a'
-	walk_right_button = 'ui_d'
-	walk_down_button = 'ui_s'
-	weak_skill_button = 'ui_e'
-	strong_skill_button = 'ui_q'
-	dash_skill_button = 'ui_r'
-	jump_skill_button = 'ui_w'
-	
-func playerTwo():
-	walk_left_button = 'ui_j'
-	walk_right_button = 'ui_l'
-	walk_down_button = 'ui_k'
-	weak_skill_button = 'ui_u'
-	strong_skill_button = 'ui_o'
-	dash_skill_button = 'ui_y'
-	jump_skill_button = 'ui_i'
 
 func get_input():	
 	# Movement
@@ -245,6 +229,26 @@ func start_dash():
 	dash_timer.set_wait_time(dash_cooldown)
 	dash_timer.connect("timeout",self,"on_dash")
 	add_child(dash_timer)
+
+
+func playerOne():
+	walk_left_button = 'ui_a'
+	walk_right_button = 'ui_d'
+	walk_down_button = 'ui_s'
+	weak_skill_button = 'ui_e'
+	strong_skill_button = 'ui_q'
+	dash_skill_button = 'ui_r'
+	jump_skill_button = 'ui_w'
+
+
+func playerTwo():
+	walk_left_button = 'ui_j'
+	walk_right_button = 'ui_l'
+	walk_down_button = 'ui_k'
+	weak_skill_button = 'ui_u'
+	strong_skill_button = 'ui_o'
+	dash_skill_button = 'ui_y'
+	jump_skill_button = 'ui_i'
 
 	
 func friction():
