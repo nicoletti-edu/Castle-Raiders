@@ -29,19 +29,14 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "jump_finished",
+"name": "jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "movement",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "jump",
 "speed": 5.0
 } ]
 
@@ -55,7 +50,7 @@ script = ExtResource( 3 )
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-animation = "movement"
+animation = "jump"
 
 [node name="Collision" parent="." index="1"]
 position = Vector2( 0, 7.09342 )

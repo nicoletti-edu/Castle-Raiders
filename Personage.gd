@@ -120,8 +120,13 @@ func jump_controller():
 	if !jump_activable:
 		return
 	if is_on_floor():
+		jump_animation()
 		velocity.y = -jump_force
 	wait_jump()
+	
+
+func jump_animation():
+	$Sprite.play('jump')
 
 	
 func dash_controller():
