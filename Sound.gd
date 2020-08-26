@@ -14,3 +14,12 @@ func play_battle():
 
 func play_king_laugh():
 	$"King Laugh".play()
+
+func play_meteor():
+	$"Meteor Falling".play()
+
+func stop_meteor():
+	$"Meteor Falling".stop()
+
+func play_explosion():
+	$"Meteor Explosion".play()

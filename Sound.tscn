@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Resources/Sound/background/som background menu/medieval-song-village-consort-no-copyright-music.wav" type="AudioStream" id=1]
 [ext_resource path="res://Sound.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Resources/Sound/Menu/Menu_change.wav" type="AudioStream" id=4]
 [ext_resource path="res://Resources/Sound/background/som background jogo/epic-battle-medieval-songs-no-copyright-music.wav" type="AudioStream" id=5]
 [ext_resource path="res://Resources/Sound/rei/Risada-rei.wav" type="AudioStream" id=6]
+[ext_resource path="res://Resources/Sound/Meteor/meteor_falling.wav" type="AudioStream" id=7]
+[ext_resource path="res://Resources/Sound/Meteor/Explosion.wav" type="AudioStream" id=8]
 
 [node name="Sounds" type="Node"]
 script = ExtResource( 2 )
@@ -31,3 +33,11 @@ volume_db = -18.322
 stream = ExtResource( 6 )
 volume_db = -14.497
 bus = "King"
+
+[node name="Meteor Falling" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -20.0
+
+[node name="Meteor Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -14.497

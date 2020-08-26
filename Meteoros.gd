@@ -2,7 +2,7 @@ extends Node2D
 
 var rng_posicao_meteoro = RandomNumberGenerator.new()
 
-var meteor_cooldown = 60
+var meteor_cooldown = 15
 var meteor_timer = null
 
 onready var meteoros = preload("res://Meteoro.tscn")

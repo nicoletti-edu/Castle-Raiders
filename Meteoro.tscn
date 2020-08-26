@@ -43,14 +43,13 @@ shape = SubResource( 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "falling"
+frame = 1
 playing = true
 
 [node name="Falling" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 13 )
 autoplay = true
-bus = "Meteor_falling"
 
 [node name="Explosion" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 volume_db = -10.0
-bus = "Meteor_explosion"
