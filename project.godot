@@ -22,6 +22,7 @@ config/icon="res://Resources/icon.png"
 [autoload]
 
 PlayerVariables="*res://PlayerVariables.gd"
+Sound="*res://Sound.tscn"
 
 [display]
 

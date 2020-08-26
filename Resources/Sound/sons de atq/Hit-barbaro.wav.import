@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Hit-barbaro.wav-2f65a20376b9c4a4b1c75dd217656f66.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/sons de atq/Hit-barbaro.wav"
+dest_files=[ "res://.import/Hit-barbaro.wav-2f65a20376b9c4a4b1c75dd217656f66.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

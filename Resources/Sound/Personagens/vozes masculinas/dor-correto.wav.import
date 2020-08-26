@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dor-correto.wav-adea0b9f6df729234358863d07a35c3b.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/Personagens/vozes masculinas/dor-correto.wav"
+dest_files=[ "res://.import/dor-correto.wav-adea0b9f6df729234358863d07a35c3b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

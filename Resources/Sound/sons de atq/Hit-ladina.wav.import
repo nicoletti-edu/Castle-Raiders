@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Hit-ladina.wav-97e028bd64dc5b2428a2b8a37538210b.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/sons de atq/Hit-ladina.wav"
+dest_files=[ "res://.import/Hit-ladina.wav-97e028bd64dc5b2428a2b8a37538210b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

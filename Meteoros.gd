@@ -2,7 +2,7 @@ extends Node2D
 
 var rng_posicao_meteoro = RandomNumberGenerator.new()
 
-var meteor_cooldown = 10
+var meteor_cooldown = 60
 var meteor_timer = null
 
 onready var meteoros = preload("res://Meteoro.tscn")
@@ -29,5 +29,6 @@ func _process(_delta):
 	if(spawn == 1):
 		meteoro = meteoros.instance()
 		get_node("Spawn Meteoro {rng}".format({"rng":rng_posicao_meteoro.randi_range(1,11)})).add_child(meteoro)
+		Sound.play_king_laugh()
 		$King/AnimationPlayer.play("Meteor Spawn")
 		spawn = 0

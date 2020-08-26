@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dor femi.wav-484066595c69b7d4492b09ab6869ca5b.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/Personagens/vozes femininas/dor femi.wav"
+dest_files=[ "res://.import/dor femi.wav-484066595c69b7d4492b09ab6869ca5b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

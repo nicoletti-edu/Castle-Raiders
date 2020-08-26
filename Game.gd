@@ -1,6 +1,8 @@
 extends Node2D
 
 func _ready():
+	Sound.get_node("Menu Background").stop()
+	Sound.play_battle()
 	var player_vars = get_node("/root/PlayerVariables")
 	var cavaleiro = preload("res://Cavaleiro.tscn")
 	var lanceiro = preload("res://Lanceiro.tscn")
@@ -38,3 +40,6 @@ func _ready():
 		4:
 			print("Ladina")
 
+func _process(_delta):
+	if(!Sound.get_node("Battle Background").is_playing()):
+		Sound.play_battle()
