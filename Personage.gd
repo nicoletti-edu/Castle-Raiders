@@ -31,9 +31,10 @@ var looking = LOOKING_RIGHT # 1 = right | 0 = left
 var friction_value = 5
 
 	# Animation
-enum {IDLE}
+enum {IDLE, MOVEMENT}
 var state = IDLE
 var action_state = IDLE
+var animate = true
 
 	# Skills
 		# weak
@@ -67,7 +68,11 @@ func get_input():
 	if Input.is_action_pressed(walk_down_button):
 		movement_controller('down')
 	if Input.is_action_pressed(walk_right_button):
-		movement_controller('right')		
+		movement_controller('right')
+	if Input.is_action_just_released(walk_left_button):
+		idle_controller()
+	if Input.is_action_just_released(walk_right_button):
+		idle_controller()	
 	# Skill
 	if Input.is_action_just_pressed(weak_skill_button):
 		weak_controller()
@@ -78,12 +83,11 @@ func get_input():
 	if Input.is_action_just_pressed(dash_skill_button):
 		dash_controller()
 
-
-func animation_controller():
-	pass
-
 	
 func movement_controller(direction):
+	state = MOVEMENT
+	action_state = MOVEMENT
+	animate = true
 	if direction == 'down':
 		position.y += 1
 	if direction == 'left':
@@ -93,7 +97,13 @@ func movement_controller(direction):
 		velocity.x += move_speed
 		flip(LOOKING_RIGHT)
 		
-		
+
+func idle_controller():
+	state = IDLE
+	action_state = IDLE
+	animate = true
+
+			
 func weak_controller():
 	if !weak_activable:
 		return
@@ -162,6 +172,17 @@ func hit(damage_taken,enemy_pos):
 	knockback(enemy_pos)
 	emit_signal("on_hp_change", current_hp)
 	
+	
+func animation_controller():
+	if !animate:
+		return
+	if state == IDLE:
+		$Sprite.play('idle')
+		animate = false
+	if state == MOVEMENT:
+		$Sprite.play('movement')
+		animate = false
+
 	
 func wait_weak():
 	weak_activable = false
