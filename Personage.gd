@@ -30,12 +30,6 @@ const LOOKING_LEFT = true
 var looking = LOOKING_RIGHT # 1 = right | 0 = left
 var friction_value = 5
 
-	# Animation
-enum {IDLE, MOVEMENT}
-var state = IDLE
-var action_state = IDLE
-var animate = true
-
 	# Skills
 		# weak
 var weak_damage = damage
@@ -85,9 +79,7 @@ func get_input():
 
 	
 func movement_controller(direction):
-	state = MOVEMENT
-	action_state = MOVEMENT
-	animate = true
+	movement_animation()
 	if direction == 'down':
 		position.y += 1
 	if direction == 'left':
@@ -98,10 +90,12 @@ func movement_controller(direction):
 		flip(LOOKING_RIGHT)
 		
 
+func movement_animation():
+	$Sprite.play('movement')
+	
+	
 func idle_controller():
-	state = IDLE
-	action_state = IDLE
-	animate = true
+	$Sprite.play('idle')
 
 			
 func weak_controller():
@@ -126,7 +120,7 @@ func jump_controller():
 	if !jump_activable:
 		return
 	if is_on_floor():
-		 velocity.y = -jump_force
+		velocity.y = -jump_force
 	wait_jump()
 
 	
@@ -171,17 +165,6 @@ func hit(damage_taken,enemy_pos):
 		current_hp = 0
 	knockback(enemy_pos)
 	emit_signal("on_hp_change", current_hp)
-	
-	
-func animation_controller():
-	if !animate:
-		return
-	if state == IDLE:
-		$Sprite.play('idle')
-		animate = false
-	if state == MOVEMENT:
-		$Sprite.play('movement')
-		animate = false
 
 	
 func wait_weak():
@@ -292,10 +275,13 @@ func friction():
 		
 # Standard Methods
 func _ready():
+	$Sprite.play('idle')
 	start_skills()
+
+
 func _process(_delta):
 	get_input()
-	animation_controller()
+	#animation_controller()
 
 	
 func _physics_process(delta):
