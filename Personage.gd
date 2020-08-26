@@ -31,6 +31,9 @@ var looking = LOOKING_RIGHT # 1 = right | 0 = left
 var friction_value = 5
 
 	# Animation
+enum {IDLE}
+var state = IDLE
+var action_state = IDLE
 
 	# Skills
 		# weak
@@ -76,6 +79,10 @@ func get_input():
 		dash_controller()
 
 
+func animation_controller():
+	pass
+
+	
 func movement_controller(direction):
 	if direction == 'down':
 		position.y += 1
@@ -267,6 +274,7 @@ func _ready():
 	start_skills()
 func _process(_delta):
 	get_input()
+	animation_controller()
 
 	
 func _physics_process(delta):
