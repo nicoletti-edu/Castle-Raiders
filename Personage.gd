@@ -76,7 +76,8 @@ func get_input():
 		jump_controller()
 	if Input.is_action_just_pressed(dash_skill_button):
 		dash_controller()
-
+func die():
+	print("dead")
 	
 func movement_controller(direction):
 	movement_animation()

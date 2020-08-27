@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://PlatformSize3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://PlatformSize5.tscn" type="PackedScene" id=2]
+[ext_resource path="res://PlatformSize2.tscn" type="PackedScene" id=3]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlatformSize5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 208, 520 )
+
+[node name="PlatformSize6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 528, 520 )
+
+[node name="PlatformSize5" parent="PlatformSize6" instance=ExtResource( 2 )]
+position = Vector2( 320, 0 )
+
+[node name="PlatformSize6" parent="PlatformSize6" instance=ExtResource( 2 )]
+position = Vector2( 640, 0 )
+
+[node name="PlatformSize7" parent="PlatformSize6" instance=ExtResource( 2 )]
+position = Vector2( 960, 0 )
+
+[node name="PlatformSize2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1744, 520 )
+
+[node name="PlatformSize3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 832 )
+
+[node name="PlatformSize3" parent="PlatformSize3" instance=ExtResource( 1 )]
+position = Vector2( 1152, 0 )
+
+[node name="PlatformSize4" parent="PlatformSize3" instance=ExtResource( 1 )]
+position = Vector2( 576, -136 )
+
+[node name="PlatformSize5" parent="PlatformSize3/PlatformSize4" instance=ExtResource( 2 )]
+position = Vector2( 0, 200 )
+
+[node name="PlatformSize4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 640, 768 )
+
+[node name="PlatformSize7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1280, 768 )

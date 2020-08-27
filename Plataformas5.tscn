@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://PlatformSize2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://PlatformSize4.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlatformSize2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 264, 800 )
+
+[node name="PlatformSize3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 496, 816 )
+
+[node name="PlatformSize4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 728, 816 )
+
+[node name="PlatformSize5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 960, 800 )
+
+[node name="PlatformSize6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1216, 784 )
+
+[node name="PlatformSize7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1464, 776 )
+
+[node name="PlatformSize8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1752, 768 )
+
+[node name="PlatformSize9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1608, 656 )
+
+[node name="PlatformSize10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1352, 664 )
+
+[node name="PlatformSize11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1080, 664 )
+
+[node name="PlatformSize12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 832, 544 )
+
+[node name="PlatformSize13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 608, 608 )
+
+[node name="PlatformSize14" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 656 )
+
+[node name="PlatformSize15" parent="." instance=ExtResource( 1 )]
+position = Vector2( 88, 680 )
+
+[node name="PlatformSize16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1320, 456 )
