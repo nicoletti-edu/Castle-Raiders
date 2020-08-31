@@ -12,6 +12,9 @@ func play_change():
 func play_battle():
 	$"Battle Background".play()
 
+func stop_battle():
+	$"Battle Background".stop()
+
 func play_king_laugh():
 	$"King Laugh".play()
 

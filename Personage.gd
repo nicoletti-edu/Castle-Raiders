@@ -80,6 +80,9 @@ func get_input():
 func die():
 	PlayerVariables.dead = player
 	print(PlayerVariables.dead)
+	print(self.get_parent().get_tree().change_scene("res://Win.tscn"))
+	self.queue_free()
+	
 	
 func movement_controller(direction):
 	if direction == 'down':
@@ -171,7 +174,7 @@ func knockback(enemy_pos):
 func hit(damage_taken,enemy_pos):
 	current_hp -= damage_taken
 	if(current_hp<0):
-		current_hp = 0
+		die()
 	knockback(enemy_pos)
 	emit_signal("on_hp_change", current_hp)
 
