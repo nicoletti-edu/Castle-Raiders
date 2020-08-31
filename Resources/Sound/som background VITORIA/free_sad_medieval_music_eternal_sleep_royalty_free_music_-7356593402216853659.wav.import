@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/free_sad_medieval_music_eternal_sleep_royalty_free_music_-7356593402216853659.wav-9dbaed3ef33caaa5b22b49d926cd037a.sample"
+
+[deps]
+
+source_file="res://Resources/Sound/som background VITORIA/free_sad_medieval_music_eternal_sleep_royalty_free_music_-7356593402216853659.wav"
+dest_files=[ "res://.import/free_sad_medieval_music_eternal_sleep_royalty_free_music_-7356593402216853659.wav-9dbaed3ef33caaa5b22b49d926cd037a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

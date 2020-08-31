@@ -13,11 +13,9 @@ func _ready():
 	Sound.play_menu()
 
 
-func _process(delta):
+func _process(_delta):
 	if(!Sound.get_node("Menu Background").is_playing()):
 		Sound.play_menu()
-
-
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://Start Menu.tscn")

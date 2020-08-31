@@ -14,6 +14,7 @@ var strong_skill_button = null
 var jump_skill_button = null
 var dash_skill_button = null
 var id = null
+var player = null
 
 	# Stats
 var move_speed = 10
@@ -77,18 +78,20 @@ func get_input():
 	if Input.is_action_just_pressed(dash_skill_button):
 		dash_controller()
 func die():
-	print("dead")
+	PlayerVariables.dead = player
+	print(PlayerVariables.dead)
 	
 func movement_controller(direction):
-	movement_animation()
 	if direction == 'down':
 		position.y += 1
 	if direction == 'left':
 		velocity.x -= move_speed
 		flip(LOOKING_LEFT)
+		movement_animation()
 	elif direction == 'right':
 		velocity.x += move_speed
 		flip(LOOKING_RIGHT)
+		movement_animation()
 		
 
 func movement_animation():
@@ -256,7 +259,7 @@ func playerOne():
 	strong_skill_button = 'ui_q'
 	dash_skill_button = 'ui_r'
 	jump_skill_button = 'ui_w'
-
+	player = 1
 
 func playerTwo():
 	walk_left_button = 'ui_j'
@@ -266,7 +269,7 @@ func playerTwo():
 	strong_skill_button = 'ui_o'
 	dash_skill_button = 'ui_y'
 	jump_skill_button = 'ui_i'
-
+	player = 2
 	
 func friction():
 	if( velocity.x > 0):
@@ -289,7 +292,6 @@ func _process(_delta):
 	get_input()
 	#animation_controller()
 
-	
 func _physics_process(delta):
 	friction()
 	velocity.y += gravity * delta

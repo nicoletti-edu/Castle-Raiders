@@ -23,3 +23,6 @@ func stop_meteor():
 
 func play_explosion():
 	$"Meteor Explosion".play()
+
+func play_victory():
+	$Victory.play()
