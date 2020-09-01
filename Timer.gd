@@ -1,7 +1,6 @@
 extends Control
 
-func _process(delta):
-	
+func _process(_delta):
 	$RichTextLabel.text = secondsToMinutes($Timer.time_left)
 
 func secondsToMinutes(seconds):

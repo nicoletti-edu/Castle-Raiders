@@ -7,7 +7,7 @@ func _ready():
 
 var colidingBodies = null
 
-func _process(delta):
+func _process(_delta):
 	colidingBodies = get_colliding_bodies()
 	if(colidingBodies.size() > 0):
 		$AnimatedSprite.play("explode")
