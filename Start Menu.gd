@@ -72,3 +72,7 @@ func _on_Button4_pressed():
 	Sound.play_button()
 	selectChar(4)
 	$"MarginContainer/VBoxContainer/HBoxContainer/Button4".disabled = true
+
+func _process(_delta):
+	if Input.is_action_just_pressed('ui_cancel'):
+		get_tree().change_scene("res://Main Menu.tscn")

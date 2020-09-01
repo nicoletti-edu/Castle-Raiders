@@ -13,6 +13,8 @@ func _ready():
 func _process(_delta):
 	if(!Sound.get_node("Menu Background").is_playing()):
 		Sound.play_menu()
+	if Input.is_action_just_pressed('ui_cancel'):
+		get_tree().quit()
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://Start Menu.tscn")

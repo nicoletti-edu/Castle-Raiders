@@ -43,3 +43,6 @@ func _ready():
 func _process(_delta):
 	if(!Sound.get_node("Battle Background").is_playing()):
 		Sound.play_battle()
+	if Input.is_action_just_pressed('ui_cancel'):
+		get_tree().change_scene("res://Main Menu.tscn")
+		Sound.stop_battle()

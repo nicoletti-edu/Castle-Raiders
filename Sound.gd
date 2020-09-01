@@ -29,3 +29,7 @@ func play_explosion():
 
 func play_victory():
 	$Victory.play()
+
+func stop_victory():
+	$Victory.stop()
+
