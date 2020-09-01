@@ -15,9 +15,10 @@ _global_script_class_icons={
 
 [application]
 
-config/name="joguinho_2"
+config/name="Castle Raider"
 run/main_scene="res://Intro.tscn"
-config/icon="res://Resources/icon.png"
+boot_splash/image="res://Resources/Images/Menu/icones e tals/logo-grid.png"
+config/icon="res://Resources/Images/Menu/icones e tals/logo-grid.png"
 
 [autoload]
 
