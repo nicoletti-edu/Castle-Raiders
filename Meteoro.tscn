@@ -18,15 +18,15 @@ extents = Vector2( 49.3767, 64.337 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ), null ],
-"loop": false,
-"name": "explode",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "falling",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ), null ],
+"loop": false,
+"name": "explode",
+"speed": 30.0
 } ]
 
 [node name="RigidBody2D" type="RigidBody2D"]
@@ -41,5 +41,5 @@ shape = SubResource( 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 2 )
 animation = "falling"
-frame = 2
+frame = 1
 playing = true
