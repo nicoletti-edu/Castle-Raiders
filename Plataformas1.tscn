@@ -6,13 +6,13 @@
 [node name="Plataformas1" type="Node"]
 
 [node name="PlatformNum1" parent="." instance=ExtResource( 3 )]
-position = Vector2( 421.075, 890.56 )
+position = Vector2( 427.075, 810.56 )
 
 [node name="PlatformNum2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 861.183, 793.721 )
+position = Vector2( 853.183, 693.721 )
 
 [node name="PlatformNum3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1280.8, 739.806 )
+position = Vector2( 1290.8, 669.806 )
 
 [node name="PlatformNum4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1573.74, 888.447 )
+position = Vector2( 1575.74, 794.447 )

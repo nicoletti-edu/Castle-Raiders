@@ -8,16 +8,16 @@
 [node name="Plataformas2" type="Node"]
 
 [node name="PlatformNum1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 334.159, 941.215 )
+position = Vector2( 290.159, 845.215 )
 
 [node name="PlatformNum2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 643.256, 843.752 )
+position = Vector2( 653.256, 767.752 )
 
 [node name="PlatformNum3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 891.091, 921.722 )
+position = Vector2( 911.091, 833.722 )
 
 [node name="PlatformNum4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1280.94, 799.197 )
+position = Vector2( 1298.94, 689.197 )
 
 [node name="PlatformNum5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1623.46, 921.722 )
+position = Vector2( 1633.46, 801.722 )

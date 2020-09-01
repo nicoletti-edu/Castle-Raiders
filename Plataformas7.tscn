@@ -23,10 +23,10 @@ position = Vector2( 1152, 512 )
 position = Vector2( 1472, 704 )
 
 [node name="PlatformSize2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 304, 864 )
+position = Vector2( 608, 816 )
 
 [node name="PlatformSize9" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1752, 848 )
 
 [node name="PlatformSize3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1088, 832 )
+position = Vector2( 1080, 752 )
