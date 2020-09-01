@@ -31,6 +31,15 @@ const LOOKING_LEFT = true
 var looking = LOOKING_RIGHT # 1 = right | 0 = left
 var friction_value = 5
 
+	# Animation
+enum {IDLE, MOVEMENT};
+var movement_state = IDLE;
+enum {NONE, ANIM}
+var animation_state = NONE
+enum {WEAK, STRONG, JUMP, DASH}
+var animation = NONE;
+
+
 	# Skills
 		# weak
 var weak_damage = damage
@@ -77,38 +86,58 @@ func get_input():
 		jump_controller()
 	if Input.is_action_just_pressed(dash_skill_button):
 		dash_controller()
-func die():
-	PlayerVariables.dead = player
-	print(PlayerVariables.dead)
-	print(self.get_parent().get_tree().change_scene("res://Win.tscn"))
-	self.queue_free()
+
+
+func animation_controller():
+		# Movement Animation
+	if animation_state == NONE:
+		if movement_state == IDLE:
+			$Sprite.play('idle')
+		elif movement_state == MOVEMENT:
+			$Sprite.play('movement')		
+		return
 	
-	
+		# Skill Animation
+	if animation_state == ANIM:
+		if (movement_state == IDLE) and (animation == WEAK):
+			$Sprite.play('weak')
+		elif (movement_state == MOVEMENT) and (animation == WEAK):
+			$Sprite.play('movement_weak')
+		elif (movement_state == IDLE) and (animation == STRONG):
+			$Sprite.play('strong')
+		elif (movement_state == MOVEMENT) and (animation == STRONG):
+			$Sprite.play('movement_strong')
+		elif (movement_state == IDLE) and (animation == JUMP):
+			$Sprite.play('jump')
+		elif (movement_state == MOVEMENT) and (animation == JUMP):
+			$Sprite.play('movement_jump')
+		elif animation == DASH:
+			$Sprite.play('dash')
+		return
+		
+
 func movement_controller(direction):
 	if direction == 'down':
 		position.y += 1
 	if direction == 'left':
 		velocity.x -= move_speed
 		flip(LOOKING_LEFT)
-		movement_animation()
+		movement_state = MOVEMENT
 	elif direction == 'right':
 		velocity.x += move_speed
 		flip(LOOKING_RIGHT)
-		movement_animation()
-		
+		movement_state = MOVEMENT
 
-func movement_animation():
-	$Sprite.play('movement')
-	
-	
+
 func idle_controller():
-	$Sprite.play('idle')
+	movement_state = IDLE
 
-			
+
 func weak_controller():
 	if !weak_activable:
 		return
 	var target = $WeakSkill.get_collider()
+	animation_state = WEAK
 	if target != null:
 		target.hit(damage, get_global_position())				
 	wait_weak()
@@ -118,6 +147,7 @@ func strong_controller():
 	if !strong_activable:
 		return
 	var target = $StrongSkill.get_collider()
+	animation_state = STRONG
 	if target != null:
 		target.hit(damage, get_global_position())
 	wait_strong()
@@ -127,18 +157,15 @@ func jump_controller():
 	if !jump_activable:
 		return
 	if is_on_floor():
-		jump_animation()
+		animation_state = JUMP
 		velocity.y = -jump_force
 	wait_jump()
-	
 
-func jump_animation():
-	$Sprite.play('jump')
 
-	
 func dash_controller():
 	if !dash_activable:
 		return
+	animation_state = DASH
 	if(looking == LOOKING_RIGHT):
 		velocity.x = velocity.x + dash_speed
 	if(looking == LOOKING_LEFT):
@@ -163,6 +190,13 @@ func convert_looking():
 	if looking:
 		return 1
 	return 0
+
+
+func die():
+	PlayerVariables.dead = player
+	print(PlayerVariables.dead)
+	print(self.get_parent().get_tree().change_scene("res://Win.tscn"))
+	self.queue_free()
 
 
 func knockback(enemy_pos):
@@ -293,9 +327,13 @@ func _ready():
 
 func _process(_delta):
 	get_input()
-	#animation_controller()
+	animation_controller()
 
 func _physics_process(delta):
 	friction()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+
+func animation_finished():
+	animation_state = NONE
