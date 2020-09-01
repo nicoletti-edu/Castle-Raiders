@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Resources/Images/Menu/tipografia do jogo/8-Bit Madness.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Intro.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 46
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 46
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -723.5
+margin_top = -345.0
+margin_right = 723.5
+margin_bottom = 345.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "	O Reino Firestorm, mais conhecido como o reino dos humanos, sempre teve uma ambicao que nenhum outro reino tinha, os humanos queriam se tornar os seres mais poderosos e para isso o Rei fez algo terrivel, entregou seu unico filho e herdeiro do trono para as temiveis bruxas, que ate entao eram apenas uma lenda, as bruxas realizaram um sacrificio e trocaram a alma do belo principe pelo artefato magico mais poderoso que ja existiu na historia. Tal artefato era capaz de desencadear a furia dos ceus, lancando bolas de fogo que destruiam tudo pela frente.
+
+	As outras racas ao descobrirem o plano do Rei, iniciaram a maior guerra ja vista, porem o poder do Rei com seu artefato era imenso, conseguindo ganhar as batalhas sem nenhum esforco. 
+
+	Em uma tentativa desesperadora os lideres das outras racas se reunem e decidem que o unico meio para parar essa guerra, seria pegando o artefato do Rei que se encontra em sua coroa.
+	
+	Para isso eles contratam uma guilda famosa de ladroes, que sempre traziam resultados ao serem bem pagos."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -169.5
+margin_top = -87.0
+margin_right = 169.5
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 2 )
+text = "Continuar"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

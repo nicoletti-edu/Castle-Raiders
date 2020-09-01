@@ -3,7 +3,6 @@ extends Node
 var player = 1
 
 func _ready():
-	Engine.target_fps = 60
 	$MarginContainer/VBoxContainer/HBoxContainer/Button.grab_focus()
 	
 func player2():
