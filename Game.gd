@@ -6,7 +6,8 @@ func _ready():
 	var player_vars = get_node("/root/PlayerVariables")
 	var cavaleiro = preload("res://Cavaleiro.tscn")
 	var lanceiro = preload("res://Lanceiro.tscn")
-	#var ladina = preload("res://")
+	var ladina = preload("res://Ladina.tscn")
+	var barbaro = preload("res://Barbaro.tscn")
 	
 	var characterOne = player_vars.playerOneChar
 	var characterTwo = player_vars.playerTwoChar
@@ -22,7 +23,9 @@ func _ready():
 			lanc.position = $PlayerOneSpawn.position
 			self.add_child(lanc)
 		3:
-			print("Barbaro")
+			var barb = barbaro.instance()
+			barb.position = $PlayerOneSpawn.position
+			self.add_child(barb)
 		4:
 			print("Ladina")
 			
