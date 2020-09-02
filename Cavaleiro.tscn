@@ -1,15 +1,9 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Personage.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO7.png" type="Texture" id=2]
 [ext_resource path="res://Cavaleiro.gd" type="Script" id=3]
-[ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO2.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO4.png" type="Texture" id=5]
-[ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO5.png" type="Texture" id=6]
-[ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO3.png" type="Texture" id=7]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1/ATAQUE5.png" type="Texture" id=8]
-[ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO6.png" type="Texture" id=9]
-[ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO1.png" type="Texture" id=10]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE2.png" type="Texture" id=11]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE3.png" type="Texture" id=12]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE4.png" type="Texture" id=13]
@@ -43,24 +37,19 @@ animations = [ {
 "name": "weak",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "movement",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 22 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "movement_weak",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
-"name": "movement_jump",
+"name": "movement",
 "speed": 5.0
 } ]
 
@@ -74,7 +63,7 @@ script = ExtResource( 3 )
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-animation = "movement_jump"
+animation = "idle"
 
 [node name="Collision" parent="." index="1"]
 position = Vector2( 0, 7.09342 )
