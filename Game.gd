@@ -27,7 +27,9 @@ func _ready():
 			barb.position = $PlayerOneSpawn.position
 			self.add_child(barb)
 		4:
-			print("Ladina")
+			var ladi = ladina.instance()
+			ladi.position = $PlayerOneSpawn.position
+			self.add_child(ladi)
 			
 	match characterTwo:
 		1:
@@ -39,9 +41,13 @@ func _ready():
 			lanc.position = $PlayerTwoSpawn.position
 			self.add_child(lanc)
 		3:
-			print("Barbaro")
+			var barb = barbaro.instance()
+			barb.position = $PlayerTwoSpawn.position
+			self.add_child(barb)
 		4:
-			print("Ladina")
+			var ladi = ladina.instance()
+			ladi.position = $PlayerTwoSpawn.position
+			self.add_child(ladi)
 
 func _process(_delta):
 	if(!Sound.get_node("Battle Background").is_playing()):
