@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IDLE1.png-d7edaf3da3172f537fc208ac296ceaf3.stex"
+path="res://.import/PULOataque5.png-c36c9dc5011f4f9ce1f4aae50a11151c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Images/animaçao cavaleiro/idle/IDLE1.png"
-dest_files=[ "res://.import/IDLE1.png-d7edaf3da3172f537fc208ac296ceaf3.stex" ]
+source_file="res://Resources/Images/animaçao cavaleiro/ataque1 pulando /PULOataque5.png"
+dest_files=[ "res://.import/PULOataque5.png-c36c9dc5011f4f9ce1f4aae50a11151c.stex" ]
 
 [params]
 

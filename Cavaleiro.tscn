@@ -1,14 +1,14 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Personage.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE1.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 pulando /PULOataque5.png" type="Texture" id=2]
 [ext_resource path="res://Cavaleiro.gd" type="Script" id=3]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO2.png" type="Texture" id=4]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO4.png" type="Texture" id=5]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO5.png" type="Texture" id=6]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO3.png" type="Texture" id=7]
-[ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO7.png" type="Texture" id=8]
-[ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO6.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1/ATAQUE5.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 pulando /PULOataque4.png" type="Texture" id=9]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/pulo/PULO1.png" type="Texture" id=10]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE2.png" type="Texture" id=11]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/idle/IDLE3.png" type="Texture" id=12]
@@ -21,22 +21,49 @@
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/corrida/corrida6.png" type="Texture" id=19]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/corrida/corrida3.png" type="Texture" id=20]
 [ext_resource path="res://Resources/Images/animaçao cavaleiro/corrida/corrida2.png" type="Texture" id=21]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 correndo/ATAQUEcorrendo1.png" type="Texture" id=22]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 correndo/ATAQUEcorrendo5.png" type="Texture" id=23]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 pulando /PULOataque1.png" type="Texture" id=24]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 pulando /PULOataque2.png" type="Texture" id=25]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 correndo/ATAQUEcorrendo2.png" type="Texture" id=26]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 correndo/ATAQUEcorrendo3.png" type="Texture" id=27]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 correndo/ATAQUEcorrendo4.png" type="Texture" id=28]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1/ATAQUE4.png" type="Texture" id=29]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1/ATAQUE3.png" type="Texture" id=30]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1/ATAQUE2.png" type="Texture" id=31]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1 pulando /PULOataque3.png" type="Texture" id=32]
+[ext_resource path="res://Resources/Images/animaçao cavaleiro/ataque1/ATAQUE1.png" type="Texture" id=33]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), null ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 32 ), ExtResource( 9 ), ExtResource( 2 ) ],
 "loop": true,
-"name": "jump",
+"name": "jump_weak",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "weak",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 19 ) ],
 "loop": true,
 "name": "movement",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "movement_weak",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -50,7 +77,7 @@ script = ExtResource( 3 )
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-animation = "jump"
+animation = "jump_weak"
 
 [node name="Collision" parent="." index="1"]
 position = Vector2( 0, 7.09342 )

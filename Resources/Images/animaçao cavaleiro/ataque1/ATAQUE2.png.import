@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ATAQUE4.png-06d67976806148e5623a052b446fd9f1.stex"
+path="res://.import/ATAQUE2.png-54ed41f34fb58f256f690cf848ed7419.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Images/animaçao cavaleiro/ataque 1/ATAQUE4.png"
-dest_files=[ "res://.import/ATAQUE4.png-06d67976806148e5623a052b446fd9f1.stex" ]
+source_file="res://Resources/Images/animaçao cavaleiro/ataque1/ATAQUE2.png"
+dest_files=[ "res://.import/ATAQUE2.png-54ed41f34fb58f256f690cf848ed7419.stex" ]
 
 [params]
 

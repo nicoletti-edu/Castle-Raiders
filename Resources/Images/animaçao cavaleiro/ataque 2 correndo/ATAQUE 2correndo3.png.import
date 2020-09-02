@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ATAQUEcorrendo4.png-05a457c24e781129ce031e487b07b16c.stex"
+path="res://.import/ATAQUE 2correndo3.png-bf8e42bcc1e5a585aaa8e2521483b041.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resources/Images/animaçao cavaleiro/ataque correndo1/ATAQUEcorrendo4.png"
-dest_files=[ "res://.import/ATAQUEcorrendo4.png-05a457c24e781129ce031e487b07b16c.stex" ]
+source_file="res://Resources/Images/animaçao cavaleiro/ataque 2 correndo/ATAQUE 2correndo3.png"
+dest_files=[ "res://.import/ATAQUE 2correndo3.png-bf8e42bcc1e5a585aaa8e2521483b041.stex" ]
 
 [params]
 
