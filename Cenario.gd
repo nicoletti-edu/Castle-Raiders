@@ -16,3 +16,7 @@ func _ready():
 func _on_Death_body_entered(body):
 	if(body.is_in_group("Player")):
 		body.die()
+
+
+func _on_Timer_timeout():
+	get_parent().get_tree().change_scene("res://Win.tscn")

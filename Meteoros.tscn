@@ -40,7 +40,4 @@ position = Vector2( 1920, 0 )
 
 [node name="King" parent="." instance=ExtResource( 2 )]
 
-[node name="AnimatedSprite" parent="King" index="0"]
-frame = 0
-
 [editable path="King"]

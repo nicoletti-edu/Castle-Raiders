@@ -211,7 +211,6 @@ func hit(damage_taken,enemy_pos):
 		die()
 	knockback(enemy_pos)
 	emit_signal("on_hp_change", current_hp)
-
 	
 func wait_weak():
 	weak_activable = false
@@ -328,6 +327,10 @@ func _ready():
 func _process(_delta):
 	get_input()
 	animation_controller()
+	if(player == 1):
+		PlayerVariables.playerOneHP = current_hp
+	else:
+		PlayerVariables.playerTwoHP = current_hp
 
 func _physics_process(delta):
 	friction()

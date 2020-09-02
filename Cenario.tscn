@@ -153,4 +153,5 @@ shape = SubResource( 7 )
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Death"]
 position = Vector2( 1840, 512 )
 shape = SubResource( 7 )
+[connection signal="timeout" from="Timer/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="body_entered" from="Death" to="." method="_on_Death_body_entered"]
