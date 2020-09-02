@@ -35,12 +35,12 @@ animations = [ {
 "frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 18 ) ],
 "loop": true,
 "name": "weak",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "movement_weak",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
@@ -50,7 +50,7 @@ animations = [ {
 "frames": [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "movement",
-"speed": 5.0
+"speed": 10.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -64,6 +64,7 @@ position = Vector2( 4.76837e-07, 0 )
 scale = Vector2( 0.22, 0.22 )
 frames = SubResource( 1 )
 animation = "idle"
+frame = 3
 
 [node name="Collision" parent="." index="1"]
 position = Vector2( 0, 8 )
