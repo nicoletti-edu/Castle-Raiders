@@ -1,14 +1,60 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Personage.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Resources/Images/Lanceiro/parado.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Images/animação lanceiro /idle/idle5.png" type="Texture" id=2]
 [ext_resource path="res://Lanceiro.gd" type="Script" id=3]
+[ext_resource path="res://Resources/Images/animação lanceiro /idle/idle6.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Images/animação lanceiro /idle/idle3.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Images/animação lanceiro /idle/idle1.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Images/animação lanceiro /corrida/corrida3.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Images/animação lanceiro /corrida/corrida4.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Images/animação lanceiro /idle/idle2.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Images/animação lanceiro /corrida/corrida2.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Images/animação lanceiro /corrida/corrida7.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Images/animação lanceiro /corrida/corrida6.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Images/animação lanceiro /corrida/corrida5.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Images/animação lanceiro /idle/idle4.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1/ataque2.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1/ataque3.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1/ataque1.png" type="Texture" id=17]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1/ataque4.png" type="Texture" id=18]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1 correndo/atque 1 correndo1.png" type="Texture" id=19]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1 correndo/atque 1 correndo3.png" type="Texture" id=20]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1 correndo/atque 1 correndo2.png" type="Texture" id=21]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1 correndo/atque 1 correndo5.png" type="Texture" id=22]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1 correndo/atque 1 correndo4.png" type="Texture" id=23]
+[ext_resource path="res://Resources/Images/animação lanceiro /ataque 1 correndo/atque 1 correndo6.png" type="Texture" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "default",
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "movement",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "movement_jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "weak",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "movement_weak",
 "speed": 5.0
 } ]
 
@@ -22,6 +68,7 @@ script = ExtResource( 3 )
 position = Vector2( 8, 0 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
+animation = "movement_jump"
 
 [node name="Collision" parent="." index="1"]
 position = Vector2( 0, 8 )
