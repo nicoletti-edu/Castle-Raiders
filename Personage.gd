@@ -92,9 +92,9 @@ func animation_controller():
 	elif !movement and animation == WEAK:
 		$Sprite.play('weak')
 	elif movement and (animation == JUMP):
-		$Sprite.play('jump')
-	elif !movement and (animation == JUMP):
 		$Sprite.play('movement_jump')
+	elif !movement and (animation == JUMP):
+		$Sprite.play('jump')
 	elif animation == DASH:
 		$Sprite.play('dash')
 	elif movement:
