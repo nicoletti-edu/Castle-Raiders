@@ -1,5 +1,65 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Personage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Images/animaçao barbaro/pulo/pulo.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Images/animaçao barbaro/idle 2/2idle1.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Images/animaçao barbaro/idle 2/2idle2.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Images/animaçao barbaro/idle 2/2idle5.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Images/animaçao barbaro/corrida/corrida3.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Images/animaçao barbaro/idle 2/2idle4.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Images/animaçao barbaro/idle 2/2idle3.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Images/animaçao barbaro/corrida/corrida2.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Images/animaçao barbaro/corrida/corrida6.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Images/animaçao barbaro/corrida/corrida4.png" type="Texture" id=11]
+[ext_resource path="res://Resources/Images/animaçao barbaro/corrida/corrida1.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Images/animaçao barbaro/corrida/corrida5.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1 correndo/ataque1correndo6.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1 correndo/ataque1correndo3.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1 correndo/ataque1correndo1.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1 correndo/ataque1correndo4.png" type="Texture" id=17]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1 correndo/ataque1correndo5.png" type="Texture" id=18]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1 correndo/ataque1correndo2.png" type="Texture" id=19]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1/ataque3.png" type="Texture" id=20]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1/ataque2.png" type="Texture" id=21]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1/ataque1.png" type="Texture" id=22]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1/ataque4.png" type="Texture" id=23]
+[ext_resource path="res://Resources/Images/animaçao barbaro/ataque 1/ataque5.png" type="Texture" id=24]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "movement_jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "movement",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 21 ), ExtResource( 20 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "weak",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 19 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "movement_weak",
+"speed": 5.0
+} ]
 
 [node name="Barbaro" instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="." index="0"]
+frames = SubResource( 1 )
+animation = "weak"
