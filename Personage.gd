@@ -41,7 +41,7 @@ var animation = IDLE
 		# weak
 var weak_damage = damage
 var weak_activable = true
-var weak_cooldown = 0.5
+var weak_cooldown = 3.0
 var weak_timer = null
 		# strong
 var strong_damage = damage * 2
